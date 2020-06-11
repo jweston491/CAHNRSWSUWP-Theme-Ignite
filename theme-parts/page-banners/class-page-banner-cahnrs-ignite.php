@@ -171,10 +171,10 @@ class Page_Banner_CAHNRS_Ignite extends Theme_Part_Ignite {
 
 		$slides = array();
 
-		$slide_count = ( get_theme_mod( '_cahnrswp_ignite_fronpage_feature_slide_count') );
+		$slide_count = ( get_theme_mod( '_cahnrswp_ignite_fronpage_feature_slide_count' ) );
 
 		// Limit slide count to 4 for static slides
-		$slide_count = $slide_count <= 4 ? $slide_count : 4; 
+		$slide_count = $slide_count <= 4 ? $slide_count : 4;
 
 		$args = array(
 			'url' => 'http://news.cahnrs.wsu.edu/',
