@@ -9,6 +9,8 @@ class Scripts_CAHNRS_Ignite {
 
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
 
+		add_action( 'customize_controls_enqueue_scripts', array( $this, 'customize_controls_enqueue_scripts' ) );
+
 	} // end __construct
 
 
@@ -27,9 +29,15 @@ class Scripts_CAHNRS_Ignite {
 
 		wp_enqueue_style( 'admin-css', CAHNRSIGNITEURL . 'css/admin.css', array(), Functions_Ignite::$version );
 
-	} // end wp_enqueue_scripts
+	} // end admin_enqueue_scripts
+
+	public function customize_controls_enqueue_scripts() {
+
+		wp_enqueue_script( 'ignite-customize', CAHNRSIGNITEURL . '/js/ignite-customize.js', array( 'jquery', 'customize-controls' ), Functions_Ignite::$version, true );
+
+	} // end customize_controls_enqueue_scripts
 
 
-} // end Sidebars_CAHNRS_Ignite
+} // end Scripts_CAHNRS_Ignite
 
 $scripts_cahnrs_ignite = new Scripts_CAHNRS_Ignite();

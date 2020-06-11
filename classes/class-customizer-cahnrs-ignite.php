@@ -1177,6 +1177,14 @@ class Customizer_CAHNRS_Ignite {
 		); // end add_setting
 
 		$wp_customize->add_setting(
+			'_cahnrswp_ignite_college_slideshow_shuffle',
+			array(
+				'default'   => true,
+				'transport' => 'refresh',
+			)
+		); // end add_setting
+
+		$wp_customize->add_setting(
 			'_cahnrswp_ignite_fronpage_feature_category',
 			array(
 				'default'   => '',
@@ -1232,6 +1240,29 @@ class Customizer_CAHNRS_Ignite {
 					'select_remote' => 'Select Remote',
 					'select_local' => 'Select Local',
 				),
+				'active_callback' => function() use ( $wp_customize ) {
+
+					$show_with = array( 'wide-static-slides' );
+
+					$show = false;
+
+					$type = $wp_customize->get_setting( '_cahnrswp_ignite_fronpage_feature' )->value();
+
+					$show = ( in_array( $type, $show_with, true ) ) ? true : false;
+
+					return $show;
+
+				},
+			)
+		); // end control
+
+		$wp_customize->add_control(
+			'_cahnrswp_ignite_college_slideshow_shuffle_control',
+			array(
+				'label'    => 'Shuffle Slides?',
+				'section'  => $section_id,
+				'settings' => '_cahnrswp_ignite_college_slideshow_shuffle',
+				'type'     => 'checkbox',
 				'active_callback' => function() use ( $wp_customize ) {
 
 					$show_with = array( 'wide-static-slides' );

@@ -171,9 +171,14 @@ class Page_Banner_CAHNRS_Ignite extends Theme_Part_Ignite {
 
 		$slides = array();
 
+		$slide_count = ( get_theme_mod( '_cahnrswp_ignite_fronpage_feature_slide_count') );
+
+		// Limit slide count to 4 for static slides
+		$slide_count = $slide_count <= 4 ? $slide_count : 4; 
+
 		$args = array(
 			'url' => 'http://news.cahnrs.wsu.edu/',
-			'per_page' => 4,
+			'per_page' => $slide_count,
 			'request_type' => 'post',
 			'post_type' => 'article',
 			'article_placement' => 'feature-slideshow',
@@ -201,7 +206,9 @@ class Page_Banner_CAHNRS_Ignite extends Theme_Part_Ignite {
 
 		} // End foreach
 
-		shuffle( $slides );
+		if ( get_theme_mod( '_cahnrswp_ignite_college_slideshow_shuffle' ) ) {
+			shuffle( $slides );
+		}
 
 		$html = '';
 
