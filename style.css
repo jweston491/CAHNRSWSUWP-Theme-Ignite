@@ -165,7 +165,7 @@ img {
 	max-width: 100%;
 }
 
-img.aligncenter {
+img.aligncenter, figure.aligncenter {
 	margin: 0 auto;
 }
 
@@ -228,6 +228,24 @@ a:hover {
 
 figure {
 	max-width: 100%;
+}
+
+figure.wp-caption {
+	box-sizing:border-box;
+	padding: 0.5rem;
+	border:1px solid #ddd;
+	margin-bottom:1rem;
+	background: #fff;
+	clear:both;
+}
+
+figure.wp-caption img {
+	vertical-align: top;
+}
+
+figure.wp-caption figcaption {
+	padding: 0.25rem 0 0.5rem;
+    font-size: 0.8rem;
 }
 
 #site-content ul {
