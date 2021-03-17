@@ -2594,7 +2594,7 @@ body .cpb-action-button:hover {
 	border: 2px solid #464e54;
 }
 
-body .cpb-action-button:after {
+body .cpb-action-button .link-title:after {
 	font-family: FontAwesome;
 	content: '\f0da';
 	text-decoration: none !important;
@@ -2616,6 +2616,12 @@ body .cpb-action-button.in-page-action {
 	font-size: 18px;
 	margin-bottom: 1.5rem;
 	text-transform: uppercase;
+}
+
+body .cpb-action-button.cpb-action-button-item.in-page-action:hover {
+	color: #464e54;
+	background-color: #fff;
+	border: 2px solid #464e54;
 }
 
 .underline-heading {
